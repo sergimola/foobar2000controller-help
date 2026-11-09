@@ -1,0 +1,571 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#edf3f1">
+    <meta
+      name="description"
+      content="Setup and support for foobar2000 controller, the Android remote for your foobar2000 PC."
+    >
+    <title>Help | foobar2000 controller</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --paper: #edf3f1;
+        --ink: #173238;
+        --muted: #52696e;
+        --signal: #087c70;
+        --signal-soft: #dcece8;
+        --line: #c5d5d2;
+        --white: #fbfdfc;
+        --amber: #82510a;
+        --amber-wash: #fff3d8;
+        --contact-ink: #82e0d1;
+        font-family: "Segoe UI", system-ui, sans-serif;
+        font-synthesis: none;
+        text-rendering: optimizeLegibility;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-size: 1rem;
+        line-height: 1.65;
+      }
+
+      a {
+        color: var(--signal);
+        text-decoration-thickness: 0.08em;
+        text-underline-offset: 0.18em;
+      }
+
+      a:hover {
+        color: var(--ink);
+      }
+
+      a:focus-visible {
+        outline: 3px solid var(--signal);
+        outline-offset: 4px;
+        border-radius: 2px;
+      }
+
+      .skip-link {
+        position: absolute;
+        top: 0.75rem;
+        left: 0.75rem;
+        z-index: 1;
+        padding: 0.55rem 0.8rem;
+        transform: translateY(-180%);
+        background: var(--ink);
+        color: var(--paper);
+      }
+
+      .skip-link:focus {
+        transform: translateY(0);
+      }
+
+      .page {
+        width: min(100% - 2rem, 54rem);
+        margin-inline: auto;
+        padding-block: 3.5rem 4rem;
+      }
+
+      .masthead {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.7rem;
+        padding-bottom: 1.25rem;
+        border-bottom: 1px solid var(--line);
+        font-size: 0.95rem;
+        font-weight: 650;
+      }
+
+      .signal-mark {
+        width: 0.7rem;
+        height: 0.7rem;
+        flex: 0 0 auto;
+        border-radius: 50%;
+        background: var(--signal);
+        box-shadow: 0 0 0 0.3rem var(--signal-soft);
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.7rem;
+        color: var(--ink);
+        text-decoration: none;
+      }
+
+      .topic-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        font-size: 0.88rem;
+        font-weight: 550;
+      }
+
+      header {
+        padding-block: 3.5rem 2.5rem;
+      }
+
+      h1,
+      h2,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        max-width: 16ch;
+        margin-bottom: 1rem;
+        font-size: clamp(2.35rem, 7vw, 4rem);
+        font-weight: 680;
+        letter-spacing: -0.05em;
+        line-height: 1.04;
+      }
+
+      .intro {
+        max-width: 39rem;
+        color: var(--muted);
+        font-size: 1.2rem;
+      }
+
+      .signal-path {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(8rem, 0.8fr) minmax(0, 1fr);
+        align-items: center;
+        gap: 1.1rem;
+        max-width: 43rem;
+        margin-top: 2rem;
+        padding-block: 1.2rem;
+        border-block: 1px solid var(--line);
+      }
+
+      .endpoint {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        min-width: 0;
+      }
+
+      .endpoint:last-child {
+        flex-direction: row-reverse;
+      }
+
+      .device-icon {
+        display: grid;
+        width: 3.1rem;
+        height: 3.1rem;
+        flex: 0 0 auto;
+        place-items: center;
+        border-radius: 0.55rem;
+        background: var(--signal-soft);
+        color: var(--signal);
+      }
+
+      .device-icon svg {
+        display: block;
+        width: 2.25rem;
+        height: 2rem;
+        fill: none;
+        stroke: currentColor;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2;
+      }
+
+      .endpoint:last-child .device-icon svg {
+        width: 1.2rem;
+        height: 2.25rem;
+      }
+
+      .endpoint-copy {
+        display: grid;
+        min-width: 0;
+        gap: 0.1rem;
+      }
+
+      .endpoint:last-child .endpoint-copy {
+        text-align: right;
+      }
+
+      .endpoint strong {
+        overflow-wrap: anywhere;
+        font-size: 0.9rem;
+      }
+
+      .endpoint span,
+      .route-label,
+      .route-context {
+        color: var(--muted);
+        font-size: 0.76rem;
+        line-height: 1.3;
+      }
+
+      .route {
+        display: grid;
+        justify-items: center;
+        gap: 0.4rem;
+      }
+
+      .route-label {
+        color: var(--ink);
+        font-weight: 650;
+      }
+
+      .route svg {
+        display: block;
+        width: 100%;
+        height: 1.1rem;
+        overflow: visible;
+        color: var(--signal);
+      }
+
+      .route line,
+      .route path {
+        fill: none;
+        stroke: currentColor;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2;
+      }
+
+      code {
+        padding: 0.05rem 0.25rem;
+        border-radius: 0.2rem;
+        background: var(--signal-soft);
+        color: var(--ink);
+        font-size: 0.9em;
+      }
+
+      main {
+        display: grid;
+        gap: 2.25rem;
+      }
+
+      section {
+        padding-top: 1.5rem;
+        border-top: 1px solid var(--line);
+        scroll-margin-top: 1rem;
+      }
+
+      h2 {
+        margin-bottom: 1rem;
+        font-size: 1.45rem;
+        letter-spacing: -0.025em;
+        line-height: 1.2;
+      }
+
+      ol,
+      ul {
+        padding-left: 1.35rem;
+      }
+
+      li + li {
+        margin-top: 0.7rem;
+      }
+
+      .note {
+        margin-top: 1.25rem;
+        padding: 1rem 1.1rem;
+        border-left: 3px solid var(--amber);
+        background: var(--amber-wash);
+        color: var(--ink);
+      }
+
+      .note p:last-child {
+        margin-bottom: 0;
+      }
+
+      .contact {
+        padding: 1.35rem;
+        border-radius: 0.35rem;
+        background: var(--ink);
+        color: var(--paper);
+      }
+
+      .contact h2 {
+        margin-bottom: 0.5rem;
+      }
+
+      .contact a {
+        color: var(--contact-ink);
+      }
+
+      .contact a:hover {
+        color: var(--white);
+      }
+
+      footer {
+        margin-top: 2rem;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 34rem) {
+        .page {
+          padding-top: 2rem;
+        }
+
+        .masthead {
+          align-items: flex-start;
+          flex-direction: column;
+          gap: 0.85rem;
+        }
+
+        .topic-links {
+          gap: 0.8rem;
+        }
+
+        header {
+          padding-top: 2.5rem;
+        }
+
+        .signal-path {
+          grid-template-columns: minmax(0, 1fr) minmax(5.8rem, 0.8fr) minmax(0, 1fr);
+          gap: 0.5rem;
+        }
+
+        .endpoint {
+          gap: 0.45rem;
+        }
+
+        .device-icon {
+          width: 2.5rem;
+          height: 2.5rem;
+        }
+
+        .device-icon svg {
+          width: 1.9rem;
+          height: 1.7rem;
+        }
+
+        .endpoint:last-child .device-icon svg {
+          width: 1rem;
+          height: 1.8rem;
+        }
+
+        .endpoint strong {
+          font-size: 0.8rem;
+        }
+
+        .endpoint span,
+        .route-label,
+        .route-context {
+          font-size: 0.72rem;
+        }
+      }
+
+      @media (max-width: 28rem) {
+        .signal-path {
+          grid-template-columns: minmax(0, 1fr) minmax(5rem, 0.6fr) minmax(0, 1fr);
+        }
+
+        .endpoint,
+        .endpoint:last-child {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .endpoint-copy,
+        .endpoint:last-child .endpoint-copy {
+          text-align: center;
+        }
+
+        .device-icon {
+          width: 2.25rem;
+          height: 2.25rem;
+        }
+
+        .device-icon svg {
+          width: 1.7rem;
+          height: 1.5rem;
+        }
+
+        .endpoint:last-child .device-icon svg {
+          width: 0.9rem;
+          height: 1.6rem;
+        }
+      }
+
+      @media (max-width: 24rem) {
+        .endpoint strong,
+        .endpoint span,
+        .route-label,
+        .route-context {
+          font-size: 0.68rem;
+        }
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          color-scheme: dark;
+          --paper: #142326;
+          --ink: #e4efed;
+          --muted: #afc3c0;
+          --signal: #70d3c3;
+          --signal-soft: #244440;
+          --line: #405753;
+          --white: #1d3032;
+          --amber: #ffd181;
+          --amber-wash: #3a3020;
+          --contact-ink: #8ce8d9;
+        }
+      }
+
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to help</a>
+    <div class="page">
+      <nav class="masthead" aria-label="Help topics">
+        <a class="brand" href="#top">
+          <span class="signal-mark" aria-hidden="true"></span>
+          <span>foobar2000 controller</span>
+        </a>
+        <div class="topic-links">
+          <a href="#connection">Connection</a>
+          <a href="#purchases">PRO purchases</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+
+      <header id="top">
+        <h1>Bring your PC player within reach</h1>
+        <p class="intro">
+          Set up foobar2000 on your PC, connect this Android remote, and keep the music playing
+          where it already lives: on your PC.
+        </p>
+        <div
+          class="signal-path"
+          role="img"
+          aria-label="foobar2000 plays audio on your PC. The Android controller sends controls and receives player status over your network."
+        >
+          <div class="endpoint">
+            <span class="device-icon" aria-hidden="true">
+              <svg viewBox="0 0 40 36">
+                <rect x="3" y="3" width="34" height="23" rx="2"></rect>
+                <path d="M15 32h10M20 26v6"></path>
+              </svg>
+            </span>
+            <span class="endpoint-copy">
+              <strong>foobar2000</strong>
+              <span>Plays audio</span>
+            </span>
+          </div>
+          <div class="route" aria-hidden="true">
+            <span class="route-label">Two-way</span>
+            <svg viewBox="0 0 120 18" preserveAspectRatio="none">
+              <path d="M8 9h104M8 9l6-6M8 9l6 6M112 9l-6-6M112 9l-6 6"></path>
+            </svg>
+            <span class="route-context">your network</span>
+          </div>
+          <div class="endpoint">
+            <span class="device-icon" aria-hidden="true">
+              <svg viewBox="0 0 22 40">
+                <rect x="3" y="2" width="16" height="36" rx="3"></rect>
+                <path d="M9 33h4"></path>
+              </svg>
+            </span>
+            <span class="endpoint-copy">
+              <strong>Controller</strong>
+              <span>Android remote</span>
+            </span>
+          </div>
+        </div>
+      </header>
+
+      <main id="main">
+        <section id="connection">
+          <h2>Connect your phone to foobar2000</h2>
+          <ol>
+            <li>
+              On the PC, install the
+              <a href="https://github.com/hyperblast/beefweb/releases">Beefweb component</a>
+              in foobar2000. Open the downloaded component file and follow foobar2000's install
+              prompt.
+            </li>
+            <li>
+              In Beefweb's component settings, enable remote connections. Leave foobar2000
+              running and allow the Beefweb port through the PC's firewall on your trusted
+              private network.
+            </li>
+            <li>
+              On your phone, choose <strong>My PC is ready</strong> to find it, or
+              <strong>Help me set it up</strong> for guided setup. When your PC appears, tap it
+              to connect.
+            </li>
+          </ol>
+          <p>
+            Discovery checks Beefweb's default port, <strong>8880</strong>. If you use another
+            port or your PC is not found, choose <strong>Enter address manually</strong> and
+            enter the PC's network address and port. Use the PC's address on your network, not
+            <code>localhost</code>.
+          </p>
+          <aside class="note">
+            <p>
+              <strong>Still can’t connect?</strong> Check that both devices are on a network
+              that allows them to reach each other, Beefweb remote connections are enabled, and
+              the firewall allows the configured port. Guest Wi-Fi often isolates devices.
+            </p>
+          </aside>
+          <p>
+            The connection to Beefweb uses HTTP. Keep it on a trusted private network and do not
+            expose the Beefweb port directly to the public internet.
+          </p>
+        </section>
+
+        <section id="purchases">
+          <h2>Restore a PRO purchase</h2>
+          <ol>
+            <li>In the app, open <strong>Settings</strong> and choose <strong>Upgrade to PRO</strong>.</li>
+            <li>Choose <strong>Restore purchase</strong>.</li>
+            <li>Make sure Google Play is signed in to the account that made the purchase.</li>
+            <li>
+              If PRO still does not appear, email app support privately. Do not post order
+              numbers, receipts, or payment details in a public forum.
+            </li>
+          </ol>
+          <p>
+            Google Play handles payment and refund requests. Read
+            <a href="https://support.google.com/googleplay/answer/2479637?hl=en">
+              Google Play’s refund information
+            </a>
+            or <a href="https://support.google.com/googleplay/answer/113418">contact the app developer through Google Play</a>.
+          </p>
+        </section>
+
+        <section>
+          <h2>Server sign-in is not supported yet</h2>
+          <p>
+            This app cannot connect to Beefweb servers that require a username and password.
+          </p>
+        </section>
+
+        <section class="contact" id="contact">
+          <h2>Contact app support</h2>
+          <p>
+            For setup or app-specific problems, email
+            <a href="mailto:foobar2000controller@gmail.com">foobar2000controller@gmail.com</a>.
+            Include your phone model, Android version, what you were trying to do, and what
+            happened. Never send passwords, full payment details, or purchase receipts.
+          </p>
+        </section>
+      </main>
+
+      <footer>
+        <p>
+          foobar2000 controller is an independent remote-control app. Audio playback stays on
+          the computer running foobar2000.
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>
