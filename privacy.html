@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#edf3f1">
+    <meta
+      name="description"
+      content="Política de privacidad de foobar2000 controller, una aplicación Android de control remoto para foobar2000."
+    >
+    <title>Política de privacidad | foobar2000 controller</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --paper: #edf3f1;
+        --ink: #173238;
+        --muted: #52696e;
+        --signal: #087c70;
+        --line: #c5d5d2;
+        font-family: "Segoe UI", system-ui, sans-serif;
+        font-synthesis: none;
+        text-rendering: optimizeLegibility;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-size: 1rem;
+        line-height: 1.7;
+      }
+
+      a {
+        color: var(--signal);
+        text-decoration-thickness: 0.08em;
+        text-underline-offset: 0.18em;
+      }
+
+      a:focus-visible {
+        outline: 3px solid var(--signal);
+        outline-offset: 4px;
+      }
+
+      .page {
+        width: min(100% - 2rem, 52rem);
+        margin-inline: auto;
+        padding-block: 2rem 4rem;
+      }
+
+      nav {
+        padding-bottom: 1rem;
+        border-bottom: 1px solid var(--line);
+        font-weight: 650;
+      }
+
+      header {
+        padding-block: 3rem 1rem;
+      }
+
+      h1,
+      h2,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        margin-bottom: 0.5rem;
+        font-size: clamp(2rem, 6vw, 3.2rem);
+        letter-spacing: -0.04em;
+        line-height: 1.1;
+      }
+
+      h2 {
+        margin-bottom: 0.7rem;
+        font-size: 1.35rem;
+        line-height: 1.25;
+      }
+
+      .updated,
+      footer {
+        color: var(--muted);
+      }
+
+      main {
+        display: grid;
+        gap: 1.8rem;
+      }
+
+      section {
+        padding-top: 1.4rem;
+        border-top: 1px solid var(--line);
+      }
+
+      ul {
+        padding-left: 1.35rem;
+      }
+
+      li + li {
+        margin-top: 0.55rem;
+      }
+
+      footer {
+        margin-top: 2.5rem;
+        padding-top: 1rem;
+        border-top: 1px solid var(--line);
+        font-size: 0.9rem;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          color-scheme: dark;
+          --paper: #142326;
+          --ink: #e4efed;
+          --muted: #afc3c0;
+          --signal: #70d3c3;
+          --line: #405753;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <nav aria-label="Navegación">
+        <a href="./">foobar2000 controller — Ayuda</a>
+      </nav>
+
+      <header>
+        <h1>Política de privacidad</h1>
+        <p class="updated">Última actualización: 10 de noviembre de 2026</p>
+        <p>
+          Esta política explica cómo se trata la información al utilizar foobar2000 controller,
+          una aplicación Android que controla foobar2000 en tu propio ordenador. La aplicación
+          no reproduce audio localmente.
+        </p>
+      </header>
+
+      <main>
+        <section>
+          <h2>Responsable y contacto</h2>
+          <p>
+            El desarrollador responsable de la aplicación es Sergi Mola. Para consultas de
+            privacidad o soporte, escribe a
+            <a href="mailto:foobar2000controller@gmail.com">foobar2000controller@gmail.com</a>.
+          </p>
+        </section>
+
+        <section>
+          <h2>Conexión con tu ordenador</h2>
+          <p>
+            La aplicación utiliza la dirección y el puerto que indicas para conectarse al
+            componente Beefweb de tu ordenador y controlar el reproductor, consultar su estado
+            y mostrar información de la biblioteca. Esa comunicación se realiza directamente
+            entre tu dispositivo y el ordenador configurado; no pasa por un servidor operado
+            por el desarrollador.
+          </p>
+          <p>
+            La conexión con Beefweb utiliza HTTP sin cifrado TLS. En función de la red, otras
+            personas con acceso al tráfico de esa red podrían observar o modificar la
+            comunicación. Utiliza una red de confianza y no expongas el puerto de Beefweb
+            directamente a Internet.
+          </p>
+        </section>
+
+        <section>
+          <h2>Diagnósticos opcionales de versiones Alpha</h2>
+          <p>
+            Algunas versiones Alpha pueden incluir una función opcional de diagnóstico. Cuando
+            está habilitada, registra eventos técnicos y de rendimiento en el dispositivo.
+            Antes de guardarlos, la aplicación anonimiza identificadores y sustituye direcciones
+            y rutas por categorías; el contenido puede incluir la versión de la aplicación,
+            resultados, tiempos y mensajes de error redactados.
+          </p>
+          <p>
+            Los registros se guardan localmente en un almacenamiento limitado. Puedes borrarlos
+            desde los ajustes de la aplicación; al alcanzar el límite se eliminan primero los
+            registros más antiguos. Compartirlos no borra la copia local.
+          </p>
+          <p>
+            La aplicación no envía estos diagnósticos automáticamente. Si eliges compartirlos,
+            se abre un borrador de correo con un archivo adjunto para que lo revises y lo envíes
+            desde tu aplicación de correo. Solo al enviarlo se transmite el informe al buzón de
+            soporte. Tu proveedor de correo también puede tratar y conservar el mensaje.
+          </p>
+        </section>
+
+        <section>
+          <h2>Correos de soporte y compras</h2>
+          <p>
+            Si escribes al soporte, trataremos la información que incluyas para responder a tu
+            consulta. Evita incluir contraseñas, datos completos de pago u otra información
+            sensible que no sea necesaria.
+          </p>
+          <p>
+            Las compras se tramitan mediante Google Play y están sujetas a las prácticas de
+            privacidad de Google. La aplicación no utiliza un servicio propio de analítica ni
+            un servidor propio para recibir telemetría de las versiones distribuidas.
+          </p>
+        </section>
+
+        <section>
+          <h2>Conservación y solicitudes</h2>
+          <p>
+            Los diagnósticos que permanezcan en el dispositivo se conservan hasta que los
+            borres, se eliminen al alcanzar el límite local o se borren los datos de la
+            aplicación. Una vez enviado un correo, la aplicación no puede retirar el mensaje
+            ni sus copias de los buzones del remitente, de los proveedores de correo o de otros
+            destinatarios.
+          </p>
+          <p>
+            Para consultar o solicitar la eliminación de una copia de un informe recibido en el
+            buzón de soporte, ponte en contacto con nosotros. Las solicitudes se revisarán de
+            acuerdo con la normativa aplicable; una solicitud no puede eliminar copias que
+            permanezcan bajo el control de otros proveedores o destinatarios.
+          </p>
+          <p>
+            Cuando la normativa de protección de datos aplicable te conceda derechos de acceso,
+            rectificación, supresión, limitación u oposición, puedes ejercerlos escribiendo al
+            correo de contacto indicado arriba. También puedes presentar una reclamación ante
+            la autoridad de protección de datos competente.
+          </p>
+        </section>
+
+        <section>
+          <h2>Cambios en esta política</h2>
+          <p>
+            Si cambia la forma en que la aplicación trata información, actualizaremos esta
+            página e indicaremos la fecha de revisión.
+          </p>
+        </section>
+      </main>
+
+      <footer>
+        <p>
+          <a href="./">Volver a la página de ayuda</a>
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>
